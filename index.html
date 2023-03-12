@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="UTF-8">
+<script src="https://cdn.jsdelivr.net/npm/@metamask/detect-provider"></script>
+    </head>
+    <body>
+<button onclick="connect()">Connect to MetaMask</button>
+<div id="account-id"></div>	
+<script>
+  async function connect() {
+    if (window.ethereum) {
+      try {
+        const accountsETH = await window.ethereum.request({ method: 'eth_accounts' });
+        const accountETH = accountsETH[0];
+        document.getElementById("account-id").innerHTML = accountETH;
+      } catch (error) {
+        console.error(error);
+      }
+    } else {
+
+    }
+}
+    </script>
+    </body>
+</html>
