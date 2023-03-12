@@ -33,23 +33,31 @@ Well, let's move on to ***index.html***.
 <html>
     <head>
     <meta charset="UTF-8">
+        
 <!-- Script tag that imports the @metamask/detect-provider library, which is used to detect the presence of the MetaMask browser extension. -->
 <script src="https://cdn.jsdelivr.net/npm/@metamask/detect-provider"></script>
+        
     </head>
     <body>
+        
 <!-- This button element creates a button that, when clicked, triggers the connect() function. -->
 <button onclick="connect()">Connect to MetaMask</button> 
+        
 <div id="account-id"></div>	
 <script>
   async function connect() {
+    
 // If it is positive, it means that the MetaMask extension is installed.
     if (window.ethereum) {
       try {
+    
 // These lines use the window.ethereum.request() method to retrieve the user's Ethereum account ID. The await keyword is used to wait for the result of the request before continuing. The accountsETH variable contains an array of account IDs, and the accountETH variable is set to the first account ID in the array.
         const accountsETH = await window.ethereum.request({ method: 'eth_accounts' });
         const accountETH = accountsETH[0];
+    
 // This line sets the innerHTML property of the account-id div element to the user's Ethereum account ID.
         document.getElementById("account-id").innerHTML = accountETH;
+    
       } catch (error) {
         console.error(error);
       }
