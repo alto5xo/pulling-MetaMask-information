@@ -54,7 +54,8 @@ Well, let's move on to ***index.html***.
         console.error(error);
       }
     } else {
-
+    alert('Please make sure MetaMask is installed in your browser.');
+    return;
     }
 }
     </script>
