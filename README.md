@@ -42,13 +42,13 @@ Well, let's move on to ***index.html***.
 <div id="account-id"></div>	
 <script>
   async function connect() {
-<!-- If it is positive, it means that the MetaMask extension is installed. -->
+// If it is positive, it means that the MetaMask extension is installed.
     if (window.ethereum) {
       try {
-<!-- These lines use the window.ethereum.request() method to retrieve the user's Ethereum account ID. The await keyword is used to wait for the result of the request before continuing. The accountsETH variable contains an array of account IDs, and the accountETH variable is set to the first account ID in the array. -->
+// These lines use the window.ethereum.request() method to retrieve the user's Ethereum account ID. The await keyword is used to wait for the result of the request before continuing. The accountsETH variable contains an array of account IDs, and the accountETH variable is set to the first account ID in the array.
         const accountsETH = await window.ethereum.request({ method: 'eth_accounts' });
         const accountETH = accountsETH[0];
-<!-- This line sets the innerHTML property of the account-id div element to the user's Ethereum account ID. -->
+// This line sets the innerHTML property of the account-id div element to the user's Ethereum account ID.
         document.getElementById("account-id").innerHTML = accountETH;
       } catch (error) {
         console.error(error);
